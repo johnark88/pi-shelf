@@ -3,12 +3,21 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
+		<script src="https://cdn.auth0.com/js/lock-8.1.min.js"></script>
 		<script src="angular/angular.min.js"></script>
 		<script src="client.js"></script>
 		<link href="normalize/normalize.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body ng-app="app" ng-controller="shelf">
-		<div ng-repeat="item in items">{{ items }}</div>
+		<div ng-hide="userIsLoggedIn"><button ng-click="login()">Log My Shit In</button></div>
+		<div ng-show="userIsLoggedIn">sdf<form></form>
+			<input type="text" placeholder="Item description" ng-model="description">
+			<input type="text" placeholder="Your Name" ng-model="user">
+			<input type="text" placeholder="Image URL" ng-model="imageUrl">
+			<button ng-click="submitItem()">Submit</button>
+		</div>
+
+		<div ng-repeat="item in items">{{ item }}</div>
 	</body>
 </html>

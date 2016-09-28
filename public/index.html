@@ -16,6 +16,8 @@
 			<input type="text" placeholder="Your Name" ng-model="user">
 			<input type="text" placeholder="Image URL" ng-model="imageUrl">
 			<button ng-click="submitItem()">Submit</button>
+			<br/><br/>
+			<button ng-click="logout()">Log My Shit Out</button>
 		</div>
 
 		<div ng-repeat="item in items">{{ item }}</div>

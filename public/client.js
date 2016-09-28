@@ -75,10 +75,27 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 		
 	}
 
+	$scope.logout = function() {
+
+		$http({
+			url: 'https://codyogden.auth0.com/v2/logout',
+			method: 'GET'
+		}).then( function( result ) {
+
+			$scope.userIsLoggedIn = false;
+
+			emptyLocalStorage();
+
+		});
+
+	};
+
 
 } ]);
 
 var emptyLocalStorage = function() {
+
+
 
 	localStorage.removeItem( 'userProfile' );
 	localStorage.removeItem( 'token' );

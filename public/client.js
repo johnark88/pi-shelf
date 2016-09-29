@@ -30,7 +30,6 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 				localStorage.setItem('userToken', token);
 				localStorage.setItem('userProfile', JSON.stringify(profile));
 				location.reload();
-				$scope.token = token;
 			}
 		});
 

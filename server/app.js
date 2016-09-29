@@ -19,12 +19,12 @@ const mongoose = require('mongoose');
 const MongoDB = mongoose.connect( mongoURI ).connection;
 
 // If there is an error connecting, let us know
-MongoDB.on( 'error', ( err ) => {
+MongoDB.on( 'error', function(err) {
     console.log( 'mongodb connection error:', err);
 });
 
 // Open the connection and start the server listening!
-MongoDB.once( 'open', () => {
+MongoDB.once( 'open', function() {
     console.log( 'mongodb is open!' );
     app.listen( port, () => {
     	console.log( 'App is listening http://localhost:' + port );

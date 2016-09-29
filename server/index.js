@@ -3,7 +3,7 @@ const express = require( 'express' );
 const index = express.Router();
 
 index.route( '/' )
-.get( ( req, res ) => {
+.get( function ( req, res ) {
 
 	console.log( 'GET /' );
 

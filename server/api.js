@@ -4,23 +4,23 @@ const api = express.Router();
 const Item = require( './item' );
 
 api.route( '/item/:itemid?' )
-.get( ( req, res ) => {
+.get( function ( req, res ) {
 
 	console.log( 'GET /item', req.body );
 
-	Item.find( ( err, result ) => {
+	Item.find( function ( err, result ) {
 
 		res.send( result );
 
 	} );
 
 } )
-.put( ( req, res ) => {
+.put( function ( req, res )  {
 
 	console.log( 'PUT /item', req.body );
 
 } )
-.post( ( req, res ) => {
+.post( function ( req, res ) {
 
 	console.log( 'POST /item', req.body );
 
@@ -30,14 +30,14 @@ api.route( '/item/:itemid?' )
 		url: req.body.url
 	});
 
-	newItem.save( ( err, result ) => {
+	newItem.save( function ( err, result ) {
 
 		res.send( result );
 
 	});
 
 } )
-.delete( ( req, res ) => {
+.delete( function( req, res ) {
 
 	console.log( 'DELETE /item', req.body );
 

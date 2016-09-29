@@ -81,12 +81,12 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 		console.log('in delete scope', id);
 		$http({
 			method: 'DELETE',
-			url: 'item/' + id
+			url: 'api/item/' + id
 		}).then(function(response){
 			console.log(response);
 		});
+		location.reload();
 	};//end delete scope
-
 }]);
 
 

@@ -24,7 +24,7 @@
 		</div>
 
 		<div ng-repeat="item in items">
-			<button type="button" ng-click="delete(item._id)" name="button"> Delete </button>
+		<span ng-show="userIsLoggedIn">	<button type="button" ng-click="delete(item._id)" name="button"> Delete </button></span>
 			Item name: {{ item.itemName }}
 			<br>
 			Item Description: {{item.description}}

@@ -21,28 +21,31 @@ api.route( '/item/:itemid?' ) // /item/83u0weuosidf03e - req.params.itemid
 
 } )
 .post( function ( req, res ) {
-
 	console.log( 'POST /item', req.body );
-
 	const newItem = new Item({
 		itemName:req.body.itemName,
 		description: req.body.description,
 		user: req.body.user,
 		url: req.body.url
 	});
-
 	newItem.save( function ( err, result ) {
-
 		res.send( result );
-
 	});
+})
 
-} )
 .delete( function( req, res ) {
 	console.log( 'DELETE /item', req.body );
-	console.log(req.params.id,'id id id id');
-	// res.send( '/item is working on this route' );
-	// Item.delete({"_id" : req.params.id});
-});
+	console.log(req.params.itemid,'id id id id');
+
+	Item.remove({"_id" : req.params.itemid}, function(err){
+		if (err) {
+			console.log(err);
+			res.sendStatus(500);
+		}else {
+			console.log('item removes = ', req.params.itemid);
+			res.sendStatus(200);
+		}//end else
+	});//item.delete
+});//.delete function
 
 module.exports = api;

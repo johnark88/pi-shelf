@@ -10,8 +10,10 @@
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body ng-app="app" ng-controller="shelf">
-		<div ng-hide="userIsLoggedIn"><button ng-click="login()">Log My Shit In</button></div>
-		<div ng-show="userIsLoggedIn">sdf<form></form>
+		<div ng-hide="userIsLoggedIn"><button ng-click="login()">Log In</button></div>
+		<br>
+		<div ng-show="userIsLoggedIn"> Prime Digital Academy: Room 2 shelf <form></form>
+			<br>
 			<input type="text" placeholder="Item Name" ng-model="name">
 			<input type="text" placeholder="Item description" ng-model="description">
 			<input type="text" placeholder="Your Name" ng-model="user">
@@ -23,9 +25,14 @@
 
 		<div ng-repeat="item in items">
 			Item name: {{ item.itemName }}
+			<br>
 			Item Description: {{item.description}}
+			<br>
 			Image: {{item.url}}
+			<br>
 			Item Owner: {{item.user}}
+			<br>
+			---------------------------------------------
 		</div>
 	</body>
 </html>

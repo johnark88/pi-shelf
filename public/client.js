@@ -71,7 +71,7 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 		}).then(function(result){
 			console.log( 'Result of post', result );
 		})
-		
+
 	}
 
 	$scope.logout = function() {

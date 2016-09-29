@@ -16,7 +16,6 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 		} else {
 			$scope.userIsLoggedIn = false;
 		}
-
 	};
 
 	$scope.init();
@@ -32,11 +31,9 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 				location.reload();
 			}
 		});
-
 	};
 
 	$scope.getItems = function() {
-
 		console.log( 'in getItems' );
 
 		$http({
@@ -47,9 +44,7 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 			console.log( 'Result:', result );
 
 			$scope.items = result.data;
-
 		});
-
 	};
 
 	$scope.getItems();
@@ -58,7 +53,6 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 		console.log( 'in submit' );
 
 		var userProfile = JSON.parse( localStorage.getItem( 'userProfile' ) );
-
 
 		$http({
 			method:'POST',
@@ -71,9 +65,9 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 			}
 		}).then(function(result){
 			console.log( 'Result of post', result );
-		})
-
-	}
+		});
+			$scope.getItems();
+	};
 
 	$scope.logout = function() {
 
@@ -81,23 +75,13 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 			url: 'https://codyogden.auth0.com/v2/logout',
 			method: 'GET'
 		}).then( function( result ) {
-
 			$scope.userIsLoggedIn = false;
-
 			emptyLocalStorage();
-
 		});
-
 	};
-
-
-} ]);
+}]);
 
 var emptyLocalStorage = function() {
-
-
-
 	localStorage.removeItem( 'userProfile' );
 	localStorage.removeItem( 'token' );
-
 };

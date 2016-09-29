@@ -1,3 +1,10 @@
 body{
   margin: 50px;
+  background-image:url("shelfpic1.png");
+  background-repeat: no-repeat;
+  image-resolution: 80em;
+}
+
+.login {
+float: right;
 }

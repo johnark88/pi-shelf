@@ -26,7 +26,7 @@ MongoDB.on( 'error', function(err) {
 // Open the connection and start the server listening!
 MongoDB.once( 'open', function() {
     console.log( 'mongodb is open!' );
-    app.listen( port, () => {
+    app.listen( port, function() {
     	console.log( 'App is listening http://localhost:' + port );
     } );
 } );

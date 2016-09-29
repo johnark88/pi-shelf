@@ -2,7 +2,6 @@ var lock = new Auth0Lock( 'srEiS0gXoYtvr8H4ORxvfSwJPPlwnlwa', 'codyogden.auth0.c
 var app = angular.module( 'app', [] );
 
 app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
-
 	console.log( 'ng' );
 
 	$scope.items = [];
@@ -40,9 +39,7 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 			method: 'GET',
 			url: '/api/item'
 		}).then( function( result ) {
-
 			console.log( 'Result:', result );
-
 			$scope.items = result.data;
 		});
 	};
@@ -79,7 +76,20 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 			emptyLocalStorage();
 		});
 	};
+
+	$scope.delete = function(id){
+		console.log('in delete scope', id);
+		$http({
+			method: 'DELETE',
+			url: 'item/' + id
+		}).then(function(response){
+			console.log(response);
+		});
+	};//end delete scope
+
 }]);
+
+
 
 var emptyLocalStorage = function() {
 	localStorage.removeItem( 'userProfile' );

@@ -24,6 +24,7 @@
 		</div>
 
 		<div ng-repeat="item in items">
+			<button type="button" ng-click="delete(item._id)" name="button"> Delete </button>
 			Item name: {{ item.itemName }}
 			<br>
 			Item Description: {{item.description}}

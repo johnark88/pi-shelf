@@ -3,7 +3,7 @@ const api = express.Router();
 
 const Item = require( './item' );
 
-api.route( '/item/:itemid?' )
+api.route( '/item/:itemid?' ) // /item/83u0weuosidf03e - req.params.itemid
 .get( function ( req, res ) {
 
 	console.log( 'GET /item', req.body );
@@ -39,11 +39,10 @@ api.route( '/item/:itemid?' )
 
 } )
 .delete( function( req, res ) {
-
 	console.log( 'DELETE /item', req.body );
-
-	res.send( '/item is working on this route' );
-
-} );
+	console.log(req.params.id,'id id id id');
+	// res.send( '/item is working on this route' );
+	// Item.delete({"_id" : req.params.id});
+});
 
 module.exports = api;

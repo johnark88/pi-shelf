@@ -12,6 +12,7 @@
 	<body ng-app="app" ng-controller="shelf">
 		<div ng-hide="userIsLoggedIn"><button ng-click="login()">Log My Shit In</button></div>
 		<div ng-show="userIsLoggedIn">sdf<form></form>
+			<input type="text" placeholder="Item Name" ng-model="name">
 			<input type="text" placeholder="Item description" ng-model="description">
 			<input type="text" placeholder="Your Name" ng-model="user">
 			<input type="text" placeholder="Image URL" ng-model="imageUrl">
@@ -20,6 +21,11 @@
 			<button ng-click="logout()">Log My Shit Out</button>
 		</div>
 
-		<div ng-repeat="item in items">{{ item }}</div>
+		<div ng-repeat="item in items">
+			Item name: {{ item.itemName }}
+			Item Description: {{item.description}}
+			Image: {{item.url}}
+			Item Owner: {{item.user}}
+		</div>
 	</body>
 </html>

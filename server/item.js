@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const item = new Schema({
 
+	itemName: String,
 	description: String,
 	user: String,
 	url: String

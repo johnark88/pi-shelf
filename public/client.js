@@ -64,6 +64,7 @@ app.controller( 'shelf', [ '$scope', '$http', function( $scope, $http ) {
 			method:'POST',
 			url: 'api/item',
 			data: {
+				itemName: $scope.name,
 				description: $scope.description,
 				user: userProfile.name,
 				url: $scope.imageUrl
